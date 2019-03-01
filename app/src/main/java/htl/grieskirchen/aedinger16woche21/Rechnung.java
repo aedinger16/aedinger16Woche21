@@ -18,6 +18,6 @@ public class Rechnung {
 
     @Override
     public String toString() {
-        return date.
+        return "";
     }
 }
