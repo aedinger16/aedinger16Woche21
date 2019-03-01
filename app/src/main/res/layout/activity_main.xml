@@ -112,7 +112,7 @@
                     android:inputType="textPostalAddress|textCapWords|textNoSuggestions" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/buttonOK"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="2dp"
@@ -123,7 +123,7 @@
                     android:text="OK" />
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/imageButtonVoice"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
@@ -143,7 +143,7 @@
                 android:layout_height="60dp" >
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/textViewBudget"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -152,8 +152,14 @@
                     android:text="TextView" />
             </TableRow>
 
-            <TableRow>
-                
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="490dp">
+
+                <ListView
+                    android:id="@+id/listViewEintraege"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </TableRow>
 
         </LinearLayout>

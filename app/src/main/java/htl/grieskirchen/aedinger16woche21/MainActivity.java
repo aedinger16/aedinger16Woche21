@@ -2,6 +2,10 @@ package htl.grieskirchen.aedinger16woche21;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.GridView;
+import android.widget.ListView;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 //Navigate to the folder that contains the files for your project.
   //      If you have not yet created a .git file, run the git commit command.
@@ -12,12 +16,33 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    //region members
+    private ListView datagrid;
+    //endregion
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        datagrid = findViewById(R.id.listViewEintraege);
+
+
     }
 
+    private void fillGrid() {
+        for(int i=0; i< 10; i++) {
+            TableRow row = new TableRow(this);
+            //set row
+            for(int j=0; j< 3; j++) {
+                TextView actualData = new TextView(this);
+                //set properties
+                row.addView(actualData);
+            }
+
+
+        }
+    }
 
 
 }
