@@ -4,13 +4,18 @@ import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.sql.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,11 +28,12 @@ import java.util.Date;
         //Press the escape key to enter and exit text-entry mode.
         //Once you have updated your .gitignore files you can save and exit vim by pressing escape, entering :wq, and pressing return/enter
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     //region members
-    private ListView datagrid;
+    private ListView data;
     private EditText editTextDate;
+    private Spinner spinnerAOE;
     private int mYear, mMonth, mDay;
     //endregion
 
@@ -38,15 +44,22 @@ public class MainActivity extends AppCompatActivity {
 
         setTodaysDate();
 
-        datagrid = findViewById(R.id.listViewEintraege);
-        editTextDate = findViewById(R.id.textViewDatum);
+        data = findViewById(R.id.listViewEintraege);
 
+        editTextDate = findViewById(R.id.textViewDatum);
         editTextDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDatePicker();
             }
         });
+
+        spinnerAOE = findViewById(R.id.dropdownAOE);
+        ArrayAdapter<CharSequence> adapterAOE = ArrayAdapter.createFromResource(this, R.array.values, android.R.layout.simple_spinner_item);
+        adapterAOE.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAOE.setAdapter(adapterAOE);
+        spinnerAOE.setOnItemSelectedListener(this);
+
     }
 
     private void showDatePicker(){
@@ -74,4 +87,14 @@ public class MainActivity extends AppCompatActivity {
         mYear = Integer.parseInt(dateParts[2]);
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

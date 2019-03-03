@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="aedinger16Woche21">Spinner</string>
+
+    <string-array name="values">
+        <item>Einnahmen</item>
+        <item>Ausgaben</item>
+    </string-array>
+</resources>
