@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="aedinger16Woche21">Spinner</string>
+    <string name="resources_ae">Spinner</string>
 
-    <string-array name="values">
+    <string-array name="values_ae">
         <item>Einnahmen</item>
         <item>Ausgaben</item>
     </string-array>

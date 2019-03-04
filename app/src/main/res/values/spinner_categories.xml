@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="resources_category">Spinner</string>
+
+    <string-array name="values_categories">
+        <item>Essen gehen</item>
+        <item>Party</item>
+        <item>Tanken</item>
+        <item>Auto Service</item>
+        <item>Nahrungsmittel kaufen</item>
+    </string-array>
+</resources>

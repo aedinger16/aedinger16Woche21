@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private ListView data;
     private EditText editTextDate;
     private Spinner spinnerAOE;
+    private Spinner spinnerCategories;
     private int mYear, mMonth, mDay;
     //endregion
 
@@ -54,12 +55,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-        spinnerAOE = findViewById(R.id.dropdownAOE);
-        ArrayAdapter<CharSequence> adapterAOE = ArrayAdapter.createFromResource(this, R.array.values, android.R.layout.simple_spinner_item);
-        adapterAOE.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerAOE.setAdapter(adapterAOE);
-        spinnerAOE.setOnItemSelectedListener(this);
-
+        setSpinnerAOE();
+        setSpinnerCategories();
     }
 
     private void showDatePicker(){
@@ -85,6 +82,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mDay = Integer.parseInt(dateParts[0]);
         mMonth = Integer.parseInt(dateParts[1]);
         mYear = Integer.parseInt(dateParts[2]);
+    }
+
+    private void setSpinnerAOE(){
+        spinnerAOE = findViewById(R.id.dropdownAOE);
+        ArrayAdapter<CharSequence> adapterAOE = ArrayAdapter.createFromResource(this, R.array.values_ae, android.R.layout.simple_spinner_item);
+        adapterAOE.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAOE.setAdapter(adapterAOE);
+        spinnerAOE.setOnItemSelectedListener(this);
+    }
+
+    private void setSpinnerCategories(){
+        spinnerCategories = findViewById(R.id.dropdownKategorie);
+        ArrayAdapter<CharSequence> adapterCategories = ArrayAdapter.createFromResource(this, R.array.values_categories, android.R.layout.simple_spinner_item);
+        adapterCategories.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategories.setAdapter(adapterCategories);
+        spinnerCategories.setOnItemSelectedListener(this);
     }
 
     @Override
