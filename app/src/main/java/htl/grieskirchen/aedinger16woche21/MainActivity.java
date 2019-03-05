@@ -1,6 +1,8 @@
 package htl.grieskirchen.aedinger16woche21;
 
 import android.app.DatePickerDialog;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,8 +20,11 @@ import android.widget.Toast;
 import java.sql.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 //Navigate to the folder that contains the files for your project.
   //      If you have not yet created a .git file, run the git commit command.
@@ -31,13 +36,14 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     //region members
-    private ListView data;
+    private ListView listviewData;
     private EditText editTextDate;
     private Spinner spinnerAOE;
     private Spinner spinnerCategories;
     private int mYear, mMonth, mDay;
     //endregion
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         setTodaysDate();
 
-        data = findViewById(R.id.listViewEintraege);
+        listviewData = findViewById(R.id.listViewEintraege);
 
         editTextDate = findViewById(R.id.textViewDatum);
         editTextDate.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +63,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         setSpinnerAOE();
         setSpinnerCategories();
+
+        List<Rechnung> list = Arrays.asList(new Rechnung(LocalDate.now(), 25, "Bier", "Income"));
+
+        Custom_ListView_Adapter adapter = new Custom_ListView_Adapter(this, R.layout.custom_listview, list);
+
+        //attaching adapter to the listview
+        listviewData.setAdapter(adapter);
     }
 
     private void showDatePicker(){

@@ -20,4 +20,36 @@ public class Rechnung {
     public String toString() {
         return "";
     }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public double getBetrag() {
+        return betrag;
+    }
+
+    public void setBetrag(double betrag) {
+        this.betrag = betrag;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getIncomeOrExpenditure() {
+        return incomeOrExpenditure;
+    }
+
+    public void setIncomeOrExpenditure(String incomeOrExpenditure) {
+        this.incomeOrExpenditure = incomeOrExpenditure;
+    }
 }

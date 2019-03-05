@@ -4,6 +4,7 @@
     <string name="resources_category">Spinner</string>
 
     <string-array name="values_categories">
+        <item></item>
         <item>Essen gehen</item>
         <item>Party</item>
         <item>Tanken</item>
