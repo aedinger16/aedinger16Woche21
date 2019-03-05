@@ -64,11 +64,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setSpinnerAOE();
         setSpinnerCategories();
 
-        List<Rechnung> list = Arrays.asList(new Rechnung(LocalDate.now(), 25, "Bier", "Income"));
+        List<Rechnung> list = Arrays.asList(new Rechnung(LocalDate.now(), 25, "Bier, Schnaps, Cola, OISSSS", "Income"));
 
         Custom_ListView_Adapter adapter = new Custom_ListView_Adapter(this, R.layout.custom_listview, list);
 
-        //attaching adapter to the listview
         listviewData.setAdapter(adapter);
     }
 

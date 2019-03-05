@@ -1,6 +1,10 @@
 package htl.grieskirchen.aedinger16woche21;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Rechnung {
 
@@ -16,9 +20,15 @@ public class Rechnung {
         this.incomeOrExpenditure = incomeOrExpenditure;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public String toString() {
-        return "";
+        if(incomeOrExpenditure.equals("Einnamen")){
+            return date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) + ": " + betrag + "€ erhalten \\(" + category + "\\)";
+        }
+        else{
+            return date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) + ": " + betrag + "€ ausgegeben (" + category + ")";
+        }
     }
 
     public LocalDate getDate() {
